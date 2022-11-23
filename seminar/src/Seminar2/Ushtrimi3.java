@@ -9,27 +9,29 @@ public class Ushtrimi3 {
         printTekZbrites(n);
     }
 
-    private static void printTekRrites(int n){
-        if (n == 0){
+    private static void printTekRrites(int n) {
+        if (n == 0) {
             return;
         }
 
-        printTekRrites(n - 1);
-
-        if (n % 2 != 0){
+        if (n % 2 == 0) {
+            printTekRrites(n - 1);
+        } else {
+            printTekRrites(n - 2);
             System.out.print(n + " ");
         }
     }
 
-    private static void printTekZbrites(int n){
-        if (n == 0){
+    private static void printTekZbrites(int n) {
+        if (n == 0) {
             return;
         }
 
-        if (n % 2 != 0){
+        if (n % 2 != 0) {
             System.out.print(n + " ");
+            printTekZbrites(n - 2);
+        } else {
+            printTekZbrites(n - 1);
         }
-
-        printTekZbrites(n - 1);
     }
 }

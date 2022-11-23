@@ -10,20 +10,19 @@ public class Ushtrimi4 {
     }
 
     private static void sirakuza(int n) {
-        if (n == 1){
+        if (n == 1) {
+            System.out.print(n);
             return;
         }
 
-        int newN = 0;
+        System.out.print(n + " ");
 
-        if (n % 2 == 0){
-            newN = n/2;
+        if (n % 2 == 0) {
+            sirakuza(n / 2);
         } else {
-           newN = 3*n + 1;
+            sirakuza(3 * n + 1);
         }
 
-        System.out.print(newN + " ");
 
-        sirakuza(newN);
     }
 }

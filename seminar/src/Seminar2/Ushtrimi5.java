@@ -7,10 +7,13 @@ public class Ushtrimi5 {
         System.out.println(shumezim);
     }
 
-    private static int shumezo(int m, int n){
-        if (n == 0 || m == 0){
+    private static int shumezo(int m, int n) {
+        if (n == 0 || m == 0) {
             return 0;
+        } else if (m == 1) {
+            return n;
+        } else {
+            return shumezo(m, n - 1) + m;
         }
-        return shumezo(m, n - 1) + m;
     }
 }
