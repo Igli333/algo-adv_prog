@@ -10,7 +10,6 @@ public class Main {
         infixToPostfix("a*b/c");
         infixToPostfix("(a/(b-c+d))*(e-a)*c");
         infixToPostfix("a/b-c+d*e-a*c");
-
     }
 
     public static void infixToPostfix(String infixExp){
