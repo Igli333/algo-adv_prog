@@ -1,8 +1,5 @@
 package Graphs;
 
-import java.util.PriorityQueue;
-import java.util.Set;
-
 public class Graph {
     private int numOfNodes;
     private boolean directed;
@@ -119,7 +116,6 @@ public class Graph {
                 System.out.println("Distance from " + 0 + " to " + i + " is " + distance[i]);
             }
         }
-
     }
 
 }
