@@ -60,21 +60,21 @@ public class Graph {
         for (int i = 0; i < numOfNodes; i++) {
             int a = minimalDistance(distance, visited);
 
-            if (a < 0){
+            if (a < 0) {
                 continue;
             }
             visited[a] = true;
 
-            for (int j = 0; j < numOfNodes; j++){
-                if (!visited[j] && matrix[a][j] != 0 && (distance[a] + matrix[a][j] <distance[j])){
+            for (int j = 0; j < numOfNodes; j++) {
+                if (!visited[j] && matrix[a][j] != 0 && (distance[a] + matrix[a][j] < distance[j])) {
                     distance[j] = distance[a] + matrix[a][j];
                 }
             }
         }
 
-        for (int i = 0; i < distance.length; i++){
-            if (distance[i] != Integer.MAX_VALUE){
-                System.out.println("Distance from "+ 0 + " to " + i + " is " + distance[i]);
+        for (int i = 0; i < distance.length; i++) {
+            if (distance[i] != Integer.MAX_VALUE) {
+                System.out.println("Distance from " + 0 + " to " + i + " is " + distance[i]);
             }
         }
     }
@@ -84,7 +84,7 @@ public class Graph {
         int minDistanceNode = -1;
 
         for (int i = 0; i < distance.length; i++) {
-            if (!visited[i] && distance[i] < minDistance){
+            if (!visited[i] && distance[i] < minDistance) {
                 minDistance = distance[i];
                 minDistanceNode = i;
             }
@@ -94,6 +94,31 @@ public class Graph {
     }
 
     public void bellmanFord() {
+        int[] distance = new int[numOfNodes];
+
+        for (int i = 0; i < numOfNodes; i++) {
+            distance[i] = Integer.MAX_VALUE;
+        }
+
+        distance[0] = 0;
+
+        for (int i = 0; i < numOfNodes - 1; i++) {
+            for (int source = 0; source < numOfNodes; source++) {
+                for (int destination = 0; destination < numOfNodes; destination++) {
+                    if (distance[source] != Integer.MAX_VALUE
+                            && distance[destination] > distance[source] + matrix[source][destination]
+                            && matrix[source][destination] != 0) {
+                        distance[destination] = distance[source] + matrix[source][destination];
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < numOfNodes; i++) {
+            if (distance[i] != Integer.MAX_VALUE) {
+                System.out.println("Distance from " + 0 + " to " + i + " is " + distance[i]);
+            }
+        }
 
     }
 

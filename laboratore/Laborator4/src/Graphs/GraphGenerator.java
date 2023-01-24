@@ -28,7 +28,7 @@ public class GraphGenerator {
         int i = 0, j = 0;
 
         while (i < size) {
-            while (j < size/2){
+            while (j < size){
                 graph.addEdge(i, j, r.nextInt(20));
                 j++;
             }
