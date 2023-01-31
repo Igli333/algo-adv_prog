@@ -1,4 +1,4 @@
-import Graph.Graph;
+import Graph.*;
 
 import java.util.Scanner;
 
@@ -10,15 +10,23 @@ public class Main {
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                System.out.println("Distance from city" + (cities[i] + 1) + " to city" + (cities[j] + 1) + ": ");
+                if (i == j || country.isSetMatrix[j][i]){
+                    continue;
+                }
+                System.out.print("Distance from " + cities[i] + " to " + cities[j] + ": ");
                 int rruga = sc.nextInt();
                 if (rruga != -1) {
                     country.addEdge(i, j, rruga);
+                } else {
+                    country.addEdge(i, j, Integer.MAX_VALUE);
                 }
             }
         }
 
-        country.findTrip();
+        ShortestPath shortestPath = new ShortestPath(country);
+
+        shortestPath.shortestPath();
+        shortestPath.printBestPath();
     }
 
 
